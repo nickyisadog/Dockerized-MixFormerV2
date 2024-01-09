@@ -98,7 +98,7 @@ if __name__ == "__main__":
     ##550
     ##100
     ##skipping the first frame
-    for i in range(10):
+    for i in range(1):
         ret, frame = cap.read()
 
     print("OK")
@@ -110,19 +110,23 @@ if __name__ == "__main__":
     bbox = cv2.selectROI(resized_frame, False)
     print(bbox)
     text_data = generate_text_data(bbox[0],bbox[1],bbox[2],bbox[3])
-    send_text_data(client_socket, text_data)
-    ##init
-    send_image_data(client_socket, resized_frame)
 
+
+    ##init sending bounding box and image to the server
+    send_text_data(client_socket, text_data)
+    send_image_data(client_socket, resized_frame)
 
     # Start a thread for receiving tracking data
     tracking_thread = threading.Thread(target=receive_tracking_data, args=(client_socket,))
     tracking_thread.start()
 
+
+
     while cap.isOpened():
         ret, frame = cap.read()
         if not ret:
             print('cannot read the video')
+
         # Crop the frame
         # cropped_frame = frame[crop_y:crop_y+crop_height, crop_x:crop_x+crop_width]
         cropped_frame = frame
@@ -131,14 +135,13 @@ if __name__ == "__main__":
         resized_frame = cv2.resize(cropped_frame, (512, 512))
         send_image_data(client_socket, resized_frame)
 
-
+        
         if ok ==True:
             if tracked_data['x']!=0:
                 print(tracked_data)
                 cv2.rectangle(resized_frame, (int(tracked_data['x']), int(tracked_data['y'])), (int(tracked_data['x']+tracked_data['w']), int(tracked_data['y']+tracked_data['h'])), (0, 255, 0), 2) 
 
                 
-
         # Display the resized frame
         cv2.imshow('Tracking Window', resized_frame)
 
