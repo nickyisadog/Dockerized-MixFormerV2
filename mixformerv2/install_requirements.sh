@@ -87,8 +87,6 @@ echo ""
 echo ""
 echo "****************** Installing timm ******************"
 pip install timm==0.4.12
-pip install flask
-pip install numpy==1.20.1
 
 echo "****************** Installing yacs/einops/thop ******************"
 pip install yacs
