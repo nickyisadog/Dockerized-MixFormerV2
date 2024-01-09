@@ -2,7 +2,9 @@
 
 This repository is based on [MCG-NJU/MixFormerV2](https://github.com/MCG-NJU/MixFormerV2).
 
-The main goal is to build a Tracking as a service with python client and C++ client.
+As there is no any inference framework that support real time online learning, therefore the main goal here is to build a tracking as a service with python client and C++ client.
+
+
 
 
 ![rdm-figure](assets/ok.gif)
@@ -16,7 +18,10 @@ docker
 
 nvidia docker
 
+OpenCV
+
 cmake (optional)
+
 
 #### 1. Build the image for tracking server
 ```
@@ -38,5 +43,6 @@ mkdir build
 cd build
 cmake .. 
 make 
-./cpp_client
+./cpp_client /home/nicky/cutted_football.mp4
+
 ```
