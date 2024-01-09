@@ -2,9 +2,9 @@
 
 This repository is based on [MCG-NJU/MixFormerV2](https://github.com/MCG-NJU/MixFormerV2).
 
-Main goal is to build a Tracking as a service with python client and C++ client.
+The main goal is to build a Tracking as a service with python client and C++ client.
 
-The 
+
 ![rdm-figure](assets/ok.gif)
 
 
