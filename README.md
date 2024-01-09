@@ -4,6 +4,8 @@ This repository is based on [MCG-NJU/MixFormerV2](https://github.com/MCG-NJU/Mix
 
 As there is no any inference framework that support real time online learning, therefore the main goal here is to build a tracking as a service with python client and C++ client.
 
+The code for server is in /mixformerv2/tracking/app.py
+
 
 
 
