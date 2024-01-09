@@ -1,0 +1,1 @@
+![rdm-figure](assets/cutted_ok.gif)
