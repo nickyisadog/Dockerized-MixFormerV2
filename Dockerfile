@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 ENV CUDA_HOME=/usr/local/cuda
 
 # Create a working directory
-WORKDIR /app
+WORKDIR /mixformerv2
 
 # Copy the install_requirements.sh script
 COPY install_requirements.sh .
@@ -39,7 +39,7 @@ RUN pip install --upgrade pip \
     && pip install torch==1.8.1+cu111 torchvision==0.9.1+cu111 torchaudio==0.8.1 -f https://download.pytorch.org/whl/torch_stable.html
 
 # Copy the application code into the container
-COPY ./app .
+COPY ./mixformerv2 .
 
 # Expose the desired port (if your application listens on a specific port)
 EXPOSE 8002
